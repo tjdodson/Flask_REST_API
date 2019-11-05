@@ -14,11 +14,6 @@ app.secret_key = 'banana'
 api = Api(app)
 
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
-
 jwt = JWT(app, authenticate, identify)  # /auth is sent usnm and pswd
 
 api.add_resource(Store, '/store/<string:name>')
